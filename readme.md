@@ -1,4 +1,6 @@
-# Initial Code by Davide Barca
+# [Coffee Bar Model by Davide Barca](https://coffee-bar-model.vercel.app/)
+* [GitHub](https://github.com/Davide-Barca/coffee-bar-model)
+* [Live](https://coffee-bar-model.vercel.app/)
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
