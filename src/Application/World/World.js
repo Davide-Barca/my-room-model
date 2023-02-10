@@ -34,6 +34,7 @@ export default class World{
     setModel(){
         this.model = {}
         this.model.scene = this.resources.items.model.scene
+        this.model.scene.rotation.y = - (Math.PI / 2)
         console.log(this.model.scene)
         // Select scene children
         this.model.baked = this.model.scene.children.find((child) => child.name === 'Model')
