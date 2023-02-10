@@ -7,17 +7,42 @@ export default class World{
         // setup
         this.application = new Application()
         this.scene = this.application.scene
+        this.resources = this.application.resources
 
-        this.setCube()
+        this.resources.on('loaded', () => {
+            this.setMaterial()
+            this.setModel()
+        })
     }
 
-    setCube(){
-        const cube = new THREE.Mesh(
-            new THREE.BoxGeometry(1, 1, 1),
-            new THREE.MeshBasicMaterial({ color: 0xff0000 })
-        )
-        this.scene.add(cube)
+    setMaterial(){
+        // Setup Backed Textures
+        this.baked = {}
+        this.lights = {}
 
-        console.log('cube created')
+        // Setup Baked Texture
+        this.baked.texture = this.resources.items.baked
+        this.baked.texture.flipY = false
+        this.baked.texture.encoding = THREE.sRGBEncoding
+
+
+        // Setup Materials
+        this.baked.material = new THREE.MeshBasicMaterial({ map: this.baked.texture })
+        this.lights.material = new THREE.MeshBasicMaterial({ color: "#FFFEA6" })
+    }
+
+    setModel(){
+        this.model = {}
+        this.model.scene = this.resources.items.model.scene
+        console.log(this.model.scene)
+        // Select scene children
+        this.model.baked = this.model.scene.children.find((child) => child.name === 'Model')
+        this.model.lights = this.model.scene.children.find((child) => child.name === 'Lights')
+
+        // Assign materials to children
+        this.model.baked.material = this.baked.material
+        this.model.lights.material = this.lights.material
+
+        this.scene.add(this.model.scene)
     }
 }
