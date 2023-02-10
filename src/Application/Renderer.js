@@ -20,6 +20,8 @@ export default class Renderer{
         })
         this.renderer.setSize(this.sizes.width, this.sizes.height)
         this.renderer.setPixelRatio(this.sizes.pixelRatio)
+        this.renderer.outputEncoding = THREE.sRGBEncoding
+        this.renderer.setClearColor('#0A001F')
 
         console.log('renderer created')
     }
