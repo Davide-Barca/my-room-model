@@ -17,7 +17,7 @@ export default class Camera{
     }
 
     setInstance(){
-        this.instance = new THREE.PerspectiveCamera(75, this.sizes.width / this.sizes.height, 0.1, 100)
+        this.instance = new THREE.PerspectiveCamera(40, this.sizes.width / this.sizes.height, 0.1, 100)
         this.instance.position.z = 7
         this.instance.position.y = 8
         this.instance.position.x = 7
@@ -31,6 +31,9 @@ export default class Camera{
         this.controls.enableDamping = true
         // Limit vertical movement
         this.controls.maxPolarAngle = Math.PI / 2
+        // Limit horizontal movement
+        this.controls.minAzimuthAngle = 0
+        this.controls.maxAzimuthAngle = Math.PI / 2
         // Limit zoom in and zoom out
         this.controls.minDistance = 8
         this.controls.maxDistance = 15
