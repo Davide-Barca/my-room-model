@@ -7,6 +7,7 @@ import World from './World/World.js'
 import Renderer from './Renderer.js'
 import Resources from './Utils/Resources.js'
 import sources from './sources.js'
+import Screen from './World/Screen.js'
 
 let instance = null
 
@@ -51,5 +52,6 @@ export default class Application{
     update(){
         this.camera.update()
         this.renderer.update()
+        this.world.update()
     }
 }
