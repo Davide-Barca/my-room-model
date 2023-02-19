@@ -44,6 +44,8 @@ export default class World{
         this.model.scene = this.resources.items.model.scene
         this.model.scene.rotation.y = - (Math.PI / 2)
         this.model.scene.position.z = 20
+        this.model.scene.position.x = -1
+        this.model.scene.position.y = -1
         // Select scene children
         this.model.baked = this.model.scene.children.find((child) => child.name === 'model')
         this.model.chair = this.model.scene.children.find((child) => child.name === 'chair')
