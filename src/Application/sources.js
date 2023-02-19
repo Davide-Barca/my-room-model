@@ -5,8 +5,13 @@ export default [
         path: "/model/baked.jpg"
     },
     {
+        name: "macbookDesktop",
+        type: "texture",
+        path: "/model/macbook.jpg"
+    },
+    {
         name: "model",
         type: "gltf",
-        path: "/model/coffeeBar.glb"
+        path: "/model/myRoom.glb"
     }
 ]
